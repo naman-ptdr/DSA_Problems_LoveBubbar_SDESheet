@@ -14,6 +14,29 @@ int partition(int* arr, int s, int e){
         }
     }
     // jab main loop se bahar hua , tab mere pass pivot ki right position ka index ready h
+    int rightIndex = s+count;
+    swap(arr[pivotInd], arr[rightIndex]);
+    pivotInd = rightIndex;
+
+    // step3: left me chote and right mai bade
+    int i = s;
+    int j = e;
+
+    while(i<pivotInd && j>pivotInd){
+        while(arr[i]<=pivotEle){
+            i++;
+        }
+        while(arr[j]>pivotEle){
+            j--;
+        }
+        //  two case can be their
+        // A-> you found the elements to swap
+        // B-> no need to swap
+        if(i<pivotInd && j>pivotInd){
+            swap(arr[i], arr[j]);
+        }
+    }
+    return pivotInd;
 }
 
 void quickSort(int* arr, int s, int e){
