@@ -6,47 +6,68 @@ using namespace std;
 // --------------------------------------striver type-------------------------------------------
 
 
-void solveMaze(vector<vector<int>>& maze, int n, int m, int row, int col,vector<vector<bool>>& vis, vector<string>& path, string output){
-    // base case
-    if(row==n-1 && col==m-1){
+void solveMaze(const vector<vector<int>>& maze, int n, int m, int row, int col, 
+               vector<vector<bool>>& vis, vector<string>& path, string output) {
+    // Base case: reached the destination
+    if (row == n - 1 && col == m - 1) {
         path.push_back(output);
-        return ;
+        return;
     }
 
-    // four case Down Left Right Up
-    int delRow[] = {-1, 0, 1, 0};
-    int delCol[] = {0, 1, 0, -1};
-    char direction[] = {'D', 'R', 'U', 'L'};
+    // Four directions: Down, Right, Up, Left
+    int delRow[] = { 1, 0, -1, 0 };  // down, right, up, left
+    int delCol[] = { 0, 1, 0, -1 };
+    char direction[] = { 'D', 'R', 'U', 'L' };
 
-    for(int i=0; i<4; i++){
-        int nrow = row+delRow[i];
-        int ncol = col+delCol[i];
-        if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && maze[nrow][ncol]==1 && !vis[nrow][ncol]){
+    for (int i = 0; i < 4; i++) {
+        int nrow = row + delRow[i];
+        int ncol = col + delCol[i];
+        
+        // Check bounds and if the cell is valid
+        if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && maze[nrow][ncol] == 1 && !vis[nrow][ncol]) {
+            // Mark the cell as visited
             vis[nrow][ncol] = true;
             output += direction[i];
+            // Recur for the next cell
             solveMaze(maze, n, m, nrow, ncol, vis, path, output);
+            // Backtrack: unmark the cell and remove the last direction
             output.pop_back();
             vis[nrow][ncol] = false;
         }
     }
 }
 
-int main(){
-    vector<vector<int>> maze = {{1, 0, 0}, {1, 1, 0}, {1, 1, 1}};
+int main() {
+    vector<vector<int>> maze = { {1, 0, 0, 0}, 
+                                  {1, 1, 0, 1}, 
+                                  {1, 1, 0, 0}, 
+                                  {0, 1, 1, 1} };
     int n = maze.size();
     int m = maze[0].size();
+
+    if (maze[0][0] == 0) {
+        cout << "No Path Exists" << endl;
+        return 0;
+    }
 
     vector<vector<bool>> vis(n, vector<bool>(m, false));
     vector<string> path;
     string output = "";
-
     vis[0][0] = true;
+
     solveMaze(maze, n, m, 0, 0, vis, path, output);
-    for(auto it : path){
-        cout<<it<<endl;
+
+    if (path.empty()) {
+        cout << "No Path Exists" << endl;
+    } else {
+        for (const auto& it : path) {
+            cout << it << endl;
+        }
     }
+    
     return 0;
 }
+
 
 
 
