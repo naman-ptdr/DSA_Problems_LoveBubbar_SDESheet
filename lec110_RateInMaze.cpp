@@ -6,7 +6,7 @@ using namespace std;
 // --------------------------------------striver type-------------------------------------------
 
 
-void solveMaze(const vector<vector<int>>& maze, int n, int m, int row, int col, 
+void solveMaze(vector<vector<int>>& maze, int n, int m, int row, int col, 
                vector<vector<bool>>& vis, vector<string>& path, string output) {
     // Base case: reached the destination
     if (row == n - 1 && col == m - 1) {
