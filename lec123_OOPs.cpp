@@ -38,6 +38,6 @@ int main(){
     // To access private members
     shivam.setWeight(101);
     cout<<"Weight : " << shivam.getWeight()<<endl;
-
+    
 return 0;
 }
