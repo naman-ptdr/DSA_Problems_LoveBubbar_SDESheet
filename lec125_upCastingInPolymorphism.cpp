@@ -6,7 +6,7 @@ class Animal{
         cout<<"Speaking....";
     }
 };
-class Dog{
+class Dog : public Animal{
     public:
     void speak(){
         cout<<"Barking....";
@@ -19,8 +19,9 @@ int main(){
     b->speak();
     // upcasting
 
-    // Animal* c = new Dog();
-    // c->speak();                   ------- output -----Barking....
+    Animal* c = new Dog();
+    c->speak();                   //------- output -----Barking....
 
+// if virtual keyword is not at their in Animal function then pointer type class which is animal , its functin is called
 return 0;
 }
