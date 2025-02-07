@@ -24,6 +24,10 @@ public:
         *y = _val;
     }
 };
+
+void printABC(const abc &a){
+    
+}
 int main(){
     abc a;
     cout<<a.getX()<<endl;
