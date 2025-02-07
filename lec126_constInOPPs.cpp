@@ -8,6 +8,10 @@ public:
         x = 0;
         y = new int(0);
     }
+    abc(int _x, int _y){
+        x = _x;
+        y = new int(_y);
+    }
     int getX() const{
         // NOT POSSIBLE  --- x = 5;
         return x;                         //POSSIBLE--- //int getX(){ x = 5;  return x;}
@@ -16,7 +20,7 @@ public:
         this->x = x;
     }
     int getY() const{
-        int z = 20;
+        // int z = 20;
         // y = &z;        ---NOT POSSIBLE
         return *y;
     }
@@ -24,13 +28,16 @@ public:
         *y = _val;
     }
 };
-
-void printABC(const abc &a){
-    
+void printABC(const abc &b){
+    cout<<"x : "<<b.getX()<<"  y: "<<b.getY()<<endl;
 }
 int main(){
     abc a;
     cout<<a.getX()<<endl;
     cout<<a.getY()<<endl;
+
+    abc b(5, 6);
+    printABC(b);
+
 return 0;
 }
