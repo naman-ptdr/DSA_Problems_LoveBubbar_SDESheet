@@ -8,10 +8,13 @@ public:
         x = 0;
         y = new int(0);
     }
+    // ctor : old style            ctor - constructor
     abc(int _x, int _y){
         x = _x;
         y = new int(_y);
     }
+    // Initializtion list
+    // abc(int _x, int _y) : x(_x), y(new int(_y)) {}
     int getX() const{
         // NOT POSSIBLE  --- x = 5;
         return x;                         //POSSIBLE--- //int getX(){ x = 5;  return x;}
