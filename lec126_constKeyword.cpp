@@ -8,12 +8,12 @@ int main(){
 
     // 2. const with pointers
 
-    int *a = new int;
-    *a = 2;
-    cout<<*a<<endl;
-    int b = 5;
-    a = &b;
-    cout<<*a<<endl;
+    // int *a = new int;
+    // *a = 2;
+    // cout<<*a<<endl;
+    // int b = 5;
+    // a = &b;
+    // cout<<*a<<endl;
 
     //  CONST DATA BUT NON-CONST POINTER
 
