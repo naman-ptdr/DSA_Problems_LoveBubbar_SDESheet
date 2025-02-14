@@ -31,6 +31,9 @@ public:
         *y = _val;
     }
 };
+
+
+
 void printABC(const abc &b){
     cout<<"x : "<<b.getX()<<"  y: "<<b.getY()<<endl;
 }
