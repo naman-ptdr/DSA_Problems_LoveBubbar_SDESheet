@@ -2,7 +2,7 @@
 #include"bird.h"
 using namespace std;
 
-// void birdDoesSomething(Bird*&bird){
+// void birdDoesSomething(Bird *&bird){
 //     bird->eat();
 //     bird->fly();
 //     bird->eat();
